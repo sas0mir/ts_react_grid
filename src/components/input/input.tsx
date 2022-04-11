@@ -10,13 +10,14 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     placeholder?: string
 }
 
-const Input: FC<InputProps> = ({label, name, customClass, round, icon, placeholder}) => {
+const Input: FC<InputProps> = ({label, name, customClass, round, icon, placeholder, ...other}) => {
     const classes = 'component_input' + customClass;
+    const type = other.type;
     //todo round, icon
   return (
     <div className="component_input_container">
       <label className='component_input_title' htmlFor={name}>{label}</label>
-      <input type="text" id={name} className={classes} placeholder={placeholder}/>
+      <input type={type} id={name} className={classes} placeholder={placeholder}/>
     </div>
   );
 }
