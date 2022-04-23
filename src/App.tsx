@@ -5,7 +5,9 @@ import Input from './components/input/input';
 import { RootState } from './app/store';
 import { useSelector, useDispatch } from 'react-redux';
 import { decrement, increment } from './features/counter/counterSlice';
-import { Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import TestRouteOne from './routes/testrouteone';
+import Navigation from './components/navigation';
 
 function App() {
 
@@ -15,11 +17,7 @@ function App() {
 
   return (
     <div className="App">
-      <Link to={'/testrouteone'}>testrouteone</Link>
-      <Link to={'/'}>APP</Link>
-      <header className="App-header">
-        React typescript redux-toolkit react-router test app
-      </header>
+      <Navigation/>
       <Input label='test input' name='test_input' placeholder='placeholder' type='number'/>
       <button onClick={() => dispatch(increment())}>+++</button>
       <p>{count}</p>
