@@ -13,7 +13,7 @@ let clientListSubMenu: ILink[] = [
     {
       name: "Orders",
       code: 2,
-      url: '/clientlist/orders',
+      url: 'orders',
     },
     {
       name: "Goods",

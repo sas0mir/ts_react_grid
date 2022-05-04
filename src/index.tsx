@@ -16,7 +16,14 @@ ReactDOM.render(
       <Routes>
           <Route path="/" element={<App />} />
           <Route path="testrouteone" element={<TestRouteOne />}/>
-          <Route path="/clientlist" element={<ClientList/>}/>
+          <Route path="/clientlist" element={<ClientList/>}>
+            <Route path=":clientId" element={<div>CLIENT ROUTE TEST</div>}/>
+            <Route path="new" element={<div>NEW CLIENT ROUTE TEST</div>}/>
+            <Route path="orders" element={<div>ORDERS ROUTE TEST</div>}/>
+            <Route path="clients" element={<div>CLIENTS ROUTE TEST</div>}/>
+            <Route path="goods" element={<div>GOODS ROUTE TEST</div>}/>
+          </Route>
+          <Route path="*" element={<div>NOT¯\_(ツ)_/¯FOUND</div>} />
         </Routes>
       </BrowserRouter>
     </Provider>

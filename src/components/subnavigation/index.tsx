@@ -2,7 +2,7 @@ import React, {FC, InputHTMLAttributes, useState, useEffect} from 'react';
 import classes from './classes.module.scss'
 import { RootState } from '../../app/store';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWifi } from '@fortawesome/free-solid-svg-icons';
 import { ILink } from '../../constants';
@@ -18,7 +18,8 @@ const SubNavigation: FC<SubnavigationProps> = (props) => {
   //redux sample (create another slice file in features for breadcrumbs)
   const count = useSelector((state: RootState) => state.counter.value);
   const dispatch = useDispatch();
-
+  const params = useParams();
+  //const active = params. придумай что брать из урла
   return (
     <nav className={classes.subnavigation_container}>
         {subLinks.map(sub => {
