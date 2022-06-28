@@ -1,17 +1,7 @@
 import { get } from 'lodash';
+import React, { ReactElement, ReactFragment } from 'react';
 import Navigation from "../components/navigation";
 import SubNavigation from "../components/subnavigation";
-import Catalog from '../routes/Catalog';
-import CatalogGrid from '../routes/CatalogGrid';
-import CatalogItemCard from '../routes/CatalogItemCard';
-import CatalogItemCreate from '../routes/CatalogItemCreate';
-import CatalogPrices from '../routes/CatalogPrices';
-import ClientCard from '../routes/ClientCard';
-import ClientCreate from '../routes/ClientCreate';
-import ClientList from '../routes/ClientList';
-import ClientsGrid from '../routes/ClientsGrid';
-import Contacts from '../routes/Contacts';
-import OrdersGrid from '../routes/OrdersGrid';
 
 export interface ILink {
     name: string,
@@ -159,33 +149,3 @@ let clientListSubMenu: ILink[] = [
       if(name === 'clientlist') return clientListSubMenu
     return clientListSubMenu;
   }
-
-  const Components:object = {
-    'Navigation': Navigation,
-    'SubNavigation': SubNavigation,
-    'Catalog': Catalog,
-    'CatalogGrid': CatalogGrid,
-    'CatalogItemCard': CatalogItemCard,
-    'CatalogItemCreate': CatalogItemCreate,
-    'CatalogPrices': CatalogPrices,
-    'ClientCard': ClientCard,
-    'ClientCreate': ClientCreate,
-    'ClientList': ClientList,
-    'ClientsGrid': ClientsGrid,
-    'Contacts': Contacts,
-    'OrdersGrid': OrdersGrid,
-  }
-
-export const getComponent: (component_name:string)=>React.ReactComponentElement<any> | null = (component_name)=> {
-    const Component = get(Components,component_name,null);
-    return <Component/>
-}
-  // export function getElement(name:string) {
-  //   if (name) {
-  //     // const component = name === 'App' ? require('../App') : require('../routes/' + name);
-  //     // const element = component.default;
-  //     // console.log('GETELEMENT->', typeof element, element);
-  //     import ['name'] as element from `../routes/${name}`;
-  //     return element
-  //   }
-  // }

@@ -1,0 +1,35 @@
+.mainpage_container {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    overflow: auto;
+}
+.grids_container {
+    position: relative;
+    display: flex;
+}
+.grids_nested_nav {
+    position: relative;
+    width: 20%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: #38798bdd;
+    & a {
+        text-decoration: none;
+        font-family:'Courier New', Courier, monospace;
+        color: rgb(8, 57, 88);
+        font-weight: 600;
+        background: none;
+        margin: 10px 5%;
+        transition: 300ms;
+        &:hover {
+          transform: scale(1.2);
+        }
+        &:active {
+          color:rgb(62, 136, 182);
+        }
+      }
+}

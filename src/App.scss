@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  font-family:'Courier New', Courier, monospace;
+  background-color: aliceblue;
+  height: 100vh;
 }
 
 .App-logo {
@@ -34,5 +37,31 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+.nav_main {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  background-color: #38798bdd;
+  z-index: 99;
+  & a {
+    text-decoration: none;
+    font-family:'Courier New', Courier, monospace;
+    color: rgb(8, 57, 88);
+    font-weight: 600;
+    background: none;
+    margin: 10px 5%;
+    transition: 300ms;
+    &:hover {
+      transform: scale(1.2);
+    }
+    &:active {
+      color:rgb(62, 136, 182);
+    }
   }
 }
