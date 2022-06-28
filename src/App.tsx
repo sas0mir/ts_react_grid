@@ -5,6 +5,7 @@ import Input from './components/input/input';
 import { RootState } from './app/store';
 import { useSelector, useDispatch } from 'react-redux';
 import { decrement, increment } from './features/counter/counterSlice';
+import { goto, goback } from './features/navigation/navigationSlice';
 import {
   BrowserRouter as Router,
   Routes,
@@ -16,22 +17,30 @@ import MainPage from './routes/MainPage';
 import Grids from './routes/Grids';
 import Api from './routes/Api';
 import TestRouteOne from './routes/testrouteone';
+import { navigationLinks, ILink } from './constants';
 
 function App() {
 
   //redux sample (create another slice file in features for breadcrumbs)
   const count = useSelector((state: RootState) => state.counter.value);
+  const navState = useSelector((state: RootState) => state.navigation);
   const dispatch = useDispatch();
   const session = { user: 'Sas', role: 'admin' };//todo backend
+
+  const handleLinkClick = (link:ILink) => {
+    console.log('NAVSTATE->', navState);
+    let newHistory = [...navState.history, link.text];
+    let newState = { current: link.to, prev: navState.current, history: newHistory };
+    dispatch(goto(newState))
+  }
 
   return (
     <div className="App">
       <Router>
         <nav className='nav_main'>
-          <Link to="/main">Main Page</Link>
-          <Link to="/grids">Grid Templates</Link>
-          <Link to="/api">API</Link>
-          <Link to="/test">Test</Link>
+          {navigationLinks ? navigationLinks.map(link => {
+            return <Link to={link.to} key={link.code} onClick={e => handleLinkClick(link)}>{link.text}</Link>
+          }) : null}
         </nav>
         <Routes>
           <Route path="/main" element={<MainPage/>}/>
