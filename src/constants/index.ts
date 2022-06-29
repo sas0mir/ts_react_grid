@@ -13,65 +13,6 @@ export interface IRoute {
   subroutes?: IRoute[], 
 }
 
-export const navigationRoutes: IRoute[] = [
-  {
-    path: '/',
-    element: 'App'
-  },
-  {
-    path: '/cl',
-    element: 'ClientList',
-    subroutes: [
-      {
-        path: ':clintId',
-        element: 'ClientCard',
-      },
-      {
-        path: 'new',
-        element: 'ClientCreate',
-      },
-      {
-        path: 'clients',
-        element: 'ClientsGrid',
-      },
-      {
-        path: 'orders',
-        element: 'OrdersGrid',
-      },
-    ]
-  },
-  {
-    path: '/cat',
-    element: 'Catalog',
-    subroutes: [
-      {
-        path: ':itemId',
-        element: 'CatalogItemCard',
-      },
-      {
-        path: 'new',
-        element: 'CatalogItemCreate',
-      },
-      {
-        path: 'goods',
-        element: 'CatalogGrid',
-      },
-      {
-        path: 'prices',
-        element: 'CatalogPrices',
-      },
-    ]
-  },
-  {
-    path: '/con',
-    element: 'Contacts'
-  },
-  {
-    path: '*',
-    element: 'shrug'
-  }
-]
-
 export const navigationLinks: ILink[] = [
   {
     text: 'Main Page',
@@ -94,3 +35,43 @@ export const navigationLinks: ILink[] = [
     to: '/test'
   }
 ]
+
+export const gridsLinks: ILink[] = [
+  {
+    text: 'Users',
+    code: 5,
+    to: 'users',
+  },
+  {
+    text: 'Posts',
+    code: 6,
+    to: 'posts',
+  },
+  {
+    text: 'Comments',
+    code: 7,
+    to: 'comments',
+  },
+  {
+    text: 'Albums',
+    code: 8,
+    to: 'albums'
+  },
+  {
+    text: 'Photos',
+    code: 9,
+    to: 'photos',
+  },
+  {
+    text: 'Todos',
+    code: 10,
+    to: 'todos'
+  }
+]
+// export const dataTemplate1: JSON[] = [
+//   {
+//     'id': 0,
+//     'name': 'Robert',
+//     'surname': 'Green'
+//   }
+// ]

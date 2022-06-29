@@ -28,7 +28,6 @@ function App() {
   const session = { user: 'Sas', role: 'admin' };//todo backend
 
   const handleLinkClick = (link:ILink) => {
-    console.log('NAVSTATE->', navState);
     let newHistory = [...navState.history, link.text];
     let newState = { current: link.to, prev: navState.current, history: newHistory };
     dispatch(goto(newState))
@@ -45,12 +44,12 @@ function App() {
         <Routes>
           <Route path="/main" element={<MainPage/>}/>
           <Route path="/grids" element={<Grids/>}>
-            <Route path="template1" element={<Grids/>}/>
-            <Route path="template2" element={<Grids/>}/>
-            <Route path="template3" element={<Grids/>}/>
-            <Route path="template4" element={<Grids/>}/>
-            <Route path="template5" element={<Grids/>}/>
-            <Route path="template6" element={<Grids/>}/>
+            <Route path="users" element={<Grids/>}/>
+            <Route path="posts" element={<Grids/>}/>
+            <Route path="comments" element={<Grids/>}/>
+            <Route path="albums" element={<Grids/>}/>
+            <Route path="photos" element={<Grids/>}/>
+            <Route path="todos" element={<Grids/>}/>
           </Route>
           <Route path="/api" element={<Api/>}/>
           <Route path="/test" element={<TestRouteOne/>}/>
