@@ -22,15 +22,6 @@ const Grids: FC<GridsProps> = (props) => {
     dispatch(goto(newState))
   }
 
-  //const clientLinks = getSubLinks('clientlist');
-//'https://jsonplaceholder.typicode.com/users'
-//posts	100 posts
-//comments	500 comments
-//albums	100 albums
-//photos	5000 photos
-//todos	200 todos
-//users	10 users
-//onClick={e => handleLinkClick(link)}
   const api_url = navState.current === '/grids' ? '' : 'https://jsonplaceholder.typicode.com/' + navState.current;
     
   return (

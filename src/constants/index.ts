@@ -13,6 +13,12 @@ export interface IRoute {
   subroutes?: IRoute[], 
 }
 
+export interface ITile {
+  title: string,
+  info: string,
+  type?: number
+}
+
 export const navigationLinks: ILink[] = [
   {
     text: 'Main Page',
@@ -68,10 +74,35 @@ export const gridsLinks: ILink[] = [
     to: 'todos'
   }
 ]
-// export const dataTemplate1: JSON[] = [
-//   {
-//     'id': 0,
-//     'name': 'Robert',
-//     'surname': 'Green'
-//   }
-// ]
+export const Tiles: ITile[] = [
+  {
+    'title': 'Users',
+    'info': 'hamburger grid',
+    'type': 1
+  },
+  {
+    'title': 'Posts',
+    'info': 'custom filters grid',
+    'type': 2
+  },
+  {
+    'title': 'Comments',
+    'info': 'custom pagination grid',
+    'type': 3
+  },
+  {
+    'title': 'Albums',
+    'info': 'default grid',
+    'type': 4
+  },
+  {
+    'title': 'Photos',
+    'info': 'big data grid',
+    'type': 5
+  },
+  {
+    'title': 'Todos',
+    'info': 'custom styled grid',
+    'type': 6
+  }
+]
