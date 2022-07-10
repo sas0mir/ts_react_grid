@@ -13,12 +13,12 @@ const Filter: FC<FilterProps> = (props) => {
 
     const { title, data, value, change, type } = props;
 
-  //const clientLinks = getSubLinks('clientlist');
+    console.log('TYPE->', type, title);
     
   return (
     <div className={classes.component_filter_container}>
       <label htmlFor={title}>{title}</label>
-      <input type='text' id={title} placeholder={value} onChange={(e) => change(title, e.target.value)}></input>
+      <input type={type === 'object' ? 'file' : type} id={title} placeholder={value} onChange={(e) => change(title, e.target.value)}></input>
     </div>
   );
 }

@@ -56,12 +56,15 @@ const Grid: FC<GridProps> = (props) => {
     }
 
     const headers = rows.length ? Object.keys(rows[0]) : [];
-    
+    const filterTypes = headers.map((h) => {
+        return typeof rows[0][h]
+    })
+    console.log('HEAD->', headers, rows[0], filterTypes);
   return (
     <div className={classes.grid_container}>
         <h3>{title}</h3>
       <section className={classes.grid_header}>
-          {headers.length ? headers.map(h => <Filter title={h} change={handleFilterChange}/>) : <h4>No filters</h4>}
+          {headers.length ? headers.map((h, index) => <Filter title={h} type={filterTypes[index]} change={handleFilterChange}/>) : <h4>No filters</h4>}
           <button className={classes.grid_header_btn} onClick={applyFilters}>Filter</button>
       </section>
       <section className={classes.grid_body}>
